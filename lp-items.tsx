@@ -1,4 +1,12 @@
-export const LP_GRID_ITEMS = [
+import { ReactNode } from "react"
+
+interface LPGridItem {
+  title: string
+  description: string
+  icon: ReactNode
+}
+
+export const LP_GRID_ITEMS: LPGridItem[] = [
   {
     title: "Next.js",
     description: "Fast by default, with config optimized for performance.",

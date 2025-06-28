@@ -55,9 +55,16 @@ export function Tooltip({
   className,
   withArrow,
 }: TooltipProps) {
+  const tooltipRootProps = {
+    ...(open !== undefined && { open }),
+    ...(defaultOpen !== undefined && { defaultOpen }),
+    ...(onOpenChange !== undefined && { onOpenChange }),
+    delayDuration: 200,
+  }
+
   return (
     <RadixTooltip.Provider>
-      <RadixTooltip.Root open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange} delayDuration={200}>
+      <RadixTooltip.Root {...tooltipRootProps}>
         <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content
